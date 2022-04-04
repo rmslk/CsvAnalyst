@@ -1,6 +1,7 @@
 # Программа анализа .csv файлов
 
 import tkinter as tk
+from tkinter.scrolledtext import ScrolledText as st
 
 # Создание главного окна
 window=tk.Tk()
@@ -26,5 +27,10 @@ label_20.grid(row=2, column=0, padx=10, pady=10, sticky="e")
 label_01 = tk.Label(text = "")
 label_01.grid(row=0, column=1, sticky="w")
 
+# Создание текстового вывода с прокруткой
+output_text = st(heigh = 22, width = 50)
+output_text.grid(row=3, column=1, padx=10, pady=10, sticky="w")
+
 # Запуск цикла mailloop
 window.mainloop()
+
