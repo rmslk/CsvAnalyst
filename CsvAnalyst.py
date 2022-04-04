@@ -31,6 +31,16 @@ label_01.grid(row=0, column=1, sticky="w")
 output_text = st(heigh = 22, width = 50)
 output_text.grid(row=3, column=1, padx=10, pady=10, sticky="w")
 
+# Создание кнопки
+button = tk.Button(window, text="Прочитать файл")
+button.grid(row=4, column=1)
+
 # Запуск цикла mailloop
 window.mainloop()
+
+
+
+
+
+
 
