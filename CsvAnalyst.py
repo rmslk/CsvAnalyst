@@ -41,7 +41,7 @@ def do_dialog():
     name= fd.askopenfilename(initialdir=my_dir)
     return name
 
-# Обработчик csv файла при помощи pandas
+# Обработка csv файла при помощи pandas
 def pandas_read_csv(file_name):
     df = pd.read_csv(file_name, header=None, sep=';')
     cnt_rows = df.shape[0]
@@ -50,11 +50,22 @@ def pandas_read_csv(file_name):
     label_21['text'] = cnt_columns
     return df
 
+# Выборка столбца в список
+def get_column(df, column_ix):
+    cnt_rows = df.shape[0]
+    lst = []
+    for i in range(cnt_rows):
+        lst.append(df.iat[i, column_ix])
+    return lst
+
 # Обработчик нажатия кнопки
 def process_button():
     file_name = do_dialog()
     label_01['text'] = file_name
-    pandas_read_csv(file_name)
+    df = pandas_read_csv(file_name)
+    lst = get_column(df, 0)
+    for item in lst:
+        output_text.insert(tk.END, str(item) + os.linesep)
     mb.showinfo(title=None, message="Готово")
 
 # Создание кнопки
